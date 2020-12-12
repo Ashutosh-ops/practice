@@ -4,8 +4,7 @@ int main(int argc, const char **argv)
 	int height,n,q,i;
 	scanf("%d%d%d", &height,&n,&q);
 	int h_i[n],s_i[n],e_i[n];
-	for(i=0;i<n;i++)
-	{
+	for(i=0;i<n;i++){
 		scanf("%d%d%d",&h_i[i],&s_i[i],&e_i[i]);
 	}
 	for(int j=0;j<q;j++)
