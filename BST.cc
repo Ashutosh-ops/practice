@@ -39,7 +39,7 @@ node *find(node *root, int data)
         }
         q.pop();
     }
-    return root;
+    return NULL;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -477,6 +477,7 @@ int menu()
     std::cout << "Enter 6 for delete an element in BST. " << std::endl;
     std::cout << "Enter 7 to get successor of desired data(element)." << std::endl;
     std::cout << "Enter 8 to exit from menu " << std::endl;
+    std::cout << "Enter 9 to search in BST" << std::endl;
     std::cout << "Input your choice: ";
     cin >> x;
     std::cout << std::endl;
@@ -487,6 +488,7 @@ int main(int argc, const char **argv)
 {
     root = NULL;
     int data;
+    node *temp;
     while (true)
     {
         switch (menu())
@@ -520,14 +522,29 @@ int main(int argc, const char **argv)
             break;
         case 7:
             // int data;
-            node *temp;
+            // node *temp;
             std::cout << "Enter the element to get it's successor. ";
             std::cin >> data;
             temp = getsuccessor(root, data);
-            std::cout <<temp->data << std::endl;
+            std::cout << temp->data << std::endl;
             break;
         case 8:
             exit(0);
+            break;
+        case 9:
+            std::cout << "Enter the element to search: ";
+            std::cin >> data;
+            std::cout << std::endl;
+            temp = find(root, data);
+            if (temp == NULL)
+            {
+                std::cout << "Element not present "<< std::endl;
+            }
+            else
+            {
+                std::cout << "Congrats ! Element "<<temp->data<< " is present."<< std::endl;
+                std::cout << std::endl;
+            }
             break;
         default:
             std::cout << "You ! Entered wrong input, try again" << std::endl;
